@@ -26,7 +26,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 tester_data = {}
 # Global variables for session storage
-app.secret_key = 'your-secret-key-here'  # Change this in production
+# app.secret_key = 'your-secret-key-here'  
 
 class WebsiteTester:
     """Main website tester class"""
@@ -356,4 +356,5 @@ def clear_all():
     return jsonify({'success': True, 'message': 'All data cleared'})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
