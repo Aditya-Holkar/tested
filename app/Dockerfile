@@ -50,4 +50,6 @@ USER appuser
 EXPOSE 5000
 
 # Run the application
-CMD ["python", "app.py"]
+# CMD ["python", "app.py"]
+
+CMD ["gunicorn", "--bind", "0.0.0.0:${PORT:-5000}", "app:application"]
