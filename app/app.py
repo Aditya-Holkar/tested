@@ -22,7 +22,7 @@ from modules.responsiveness_checker import ResponsivenessChecker
 from modules.browser_compatibility import BrowserCompatibility
 from modules.report_generator import ReportGenerator
 
-app = Flask(__name__)
+application = Flask(__name__)
 app.config.from_object(Config)
 tester_data = {}
 # Global variables for session storage
@@ -358,3 +358,4 @@ def clear_all():
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
+
